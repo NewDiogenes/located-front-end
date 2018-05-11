@@ -5,9 +5,11 @@ import { Provider } from 'react-redux';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import productReducer from './reducers/productReducer';
+import deviceReducer from './reducers/deviceReducer';
 
 const reducers = combineReducers({
   product: productReducer,
+  device: deviceReducer,
 });
 
 const store = createStore(reducers);

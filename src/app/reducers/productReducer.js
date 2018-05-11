@@ -1,5 +1,7 @@
+import { ACTION_TYPES } from '../actions/productActions';
 
 const initialState = {
+  litProduct: 0,
   productList: [
     {
       productName: 'Dura Flexible Hose Water 1/2" Hex 300mm',
@@ -64,8 +66,11 @@ const initialState = {
   ],
 };
 
+
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
+  case ACTION_TYPES.LIGHT_UP_PRODUCT:
+    return { ...state, litProduct: action.payload.productId };
   default:
     return state;
   }

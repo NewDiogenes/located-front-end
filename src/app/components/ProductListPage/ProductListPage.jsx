@@ -2,10 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-export const ProductListPageComponent = ({ className, productList }) => (
+export const ProductListPageComponent =
+({
+  className, productList, productEntryPressed, litProduct, device,
+}) => (
   <div className={ className }>
     {productList.map((product) => (
-      <div key={ product.productId } className='productRow'>
+      <div
+        key={ product.productId }
+        className='productRow'
+        onClick={ () => productEntryPressed(product.productId, litProduct, device) }
+      >
         <h3>{product.productName}</h3>
         <h2>{product.price}</h2>
       </div>))}
@@ -14,6 +21,12 @@ export const ProductListPageComponent = ({ className, productList }) => (
 
 ProductListPageComponent.propTypes = {
   className: PropTypes.string,
+  productEntryPressed: PropTypes.func.isRequired,
+  litProduct: PropTypes.number.isRequired,
+  device: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
   productList: PropTypes.arrayOf(PropTypes.shape({
     productName: PropTypes.string.isRequired,
     productId: PropTypes.number.isRequired,
