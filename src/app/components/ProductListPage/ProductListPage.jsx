@@ -7,14 +7,14 @@ export const ProductListPageComponent =
   className, productList, productEntryPressed, litProduct, device,
 }) => (
   <div className={ className }>
-    {productList.map((product) => (
+    {productList.map(({ productId, productName, price }) => (
       <div
-        key={ product.productId }
-        className='productRow'
-        onClick={ () => productEntryPressed(product.productId, litProduct, device) }
+        key={ productId }
+        className={ `productRow ${ litProduct === productId ? device.color : '' }` }
+        onClick={ () => productEntryPressed(productId, litProduct, device) }
       >
-        <h3>{product.productName}</h3>
-        <h2>{product.price}</h2>
+        <h3>{productName}</h3>
+        <h2>{price}</h2>
       </div>))}
   </div>
 );
@@ -59,18 +59,38 @@ h2 {
   margin: 0;
 }
 
+
 .productRow {
   margin: 0 calc(40vmax - 40vh);
   display: flex;
   flex: 1;
   flex-direction: column;
   padding: 1vw;
-  background-color: white;
   border-style: solid;
   border-width: 1px 2px;
   border-color: darkGrey;
   color: slateGrey;
   flex-basis: auto;
   font-weight: bold;
+}
+
+.redDevice {
+  background-color: fireBrick;
+  h2 {
+    color: white;
+  }
+  h3 {
+    color: white;
+  }
+}
+
+.greenDevice {
+  background-color: green;
+  h2 {
+    color: white;
+  }
+  h3 {
+    color: white;
+  }
 }
 `;

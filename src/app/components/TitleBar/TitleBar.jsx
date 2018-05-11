@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import DeviceToggle from '../../containers/DeviceToggleContainer';
 
 export const TitleBarComponent = ({ text, className }) => (
   <div className={ className }>
-    { text }
+    <text>{ text }</text>
+    <DeviceToggle />
   </div>
 );
 

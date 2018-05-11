@@ -1,12 +1,12 @@
 export const ACTION_TYPES = {
-  LIGHT_UP_PRODUCT: 'LIGHT_UP_PRODUCT',
+  CHANGE_DEVICE: 'CHANGE_DEVICE',
 };
 
-export const lightUpProduct = (productId) => (
+export const changeDevice = (device) => (
   {
-    type: ACTION_TYPES.LIGHT_UP_PRODUCT,
+    type: ACTION_TYPES.CHANGE_DEVICE,
     payload: {
-      productId,
+      device,
     },
   }
 );
