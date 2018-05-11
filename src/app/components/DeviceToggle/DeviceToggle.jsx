@@ -7,8 +7,8 @@ const DeviceToggle = ({
   className, litProduct, device, connectToDevice,
 }) => (
   <div className={ className }>
-    <button className='greenDevice' onClick={ () => connectToDevice(litProduct, device, DEVICES.VIVID) }>Green</button>
-    <button className='redDevice' onClick={ () => connectToDevice(litProduct, device, DEVICES.LOCATED) }>Red</button>
+    <button className='greenDevice' onClick={ () => connectToDevice(litProduct, device, DEVICES.LOCATED) }>Green</button>
+    <button className='redDevice' onClick={ () => connectToDevice(litProduct, device, DEVICES.VIVID) }>Red</button>
   </div>
 );
 
